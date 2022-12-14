@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
                     {
                         specialMove++;
                     }
-
+                    //test
                     break;
 
             }
