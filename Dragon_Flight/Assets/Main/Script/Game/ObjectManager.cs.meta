@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 272d28714957d0947a1b85117785c841
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - itemCoinPrefab: {fileID: 6893917520337839280, guid: faeb2124933d56b4aa684b19708d61ce, type: 3}
+  - itemPowerPrefab: {fileID: 1418751529105057284, guid: b33671245cf535e4aa8c2e1d8ad25d18, type: 3}
+  - itemSpecialMovePrefab: {fileID: 8384555378201918947, guid: 774305d484aedc8468e1e39ce9311b8f, type: 3}
+  - bulletSpecialMovePrefab: {fileID: 357652965019690075, guid: a110087a196111e499157d467cba4e26, type: 3}
+  - bulletObjA_Prefab: {fileID: 9110492404956456261, guid: b5d69d94583a5c14680399f885b7eef0, type: 3}
+  - bulletObjB_Prefab: {fileID: 6513656418591631605, guid: 237be9201da923544920b8192e6fbe69, type: 3}
+  - bulletObjC_Prefab: {fileID: 7034037815478136, guid: a8e8c305c1c437c4db860c3c079c100f, type: 3}
+  - bulletObjD_Prefab: {fileID: 7155080493056179410, guid: e575d96a4b75ea94f93cb630bc98889f, type: 3}
+  - bulletFollow_Prefab: {fileID: 4567936430800479226, guid: a312b8e1a5db5834b8e990f2ddb1378b, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
