@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class BossMovement : MonoBehaviour
 {
+<<<<<<< HEAD
+
+    //i like burger
+    
+=======
     public GameObject bullet;
     public float oneShoting = 10f;
 
+>>>>>>> bf6e8f383103538c1753fd7fea0a38f3c76f97e4
     Rigidbody2D rb;
     public float speed = 10f;
     public float bulletSpeed = 1f;
