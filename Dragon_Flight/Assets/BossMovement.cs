@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class BossMovement : MonoBehaviour
 {
+
+    //i like burger
     
     Rigidbody2D rb;
     public float speed = 10f;
