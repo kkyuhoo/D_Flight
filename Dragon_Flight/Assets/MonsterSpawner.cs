@@ -21,26 +21,26 @@ public class MonsterSpawner : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
-    void Update()
+   void Update()
     {
         time += Time.deltaTime;
         time2 += Time.deltaTime;
 
-        if (time >= lasttime + 3)
+        if(time >= lasttime + 3)
         {
-            if (boss == false)
+            if(boss == false)
             {
-                Monster1Spawn();
-                lasttime = time;
+            Monster1Spawn();
+            lasttime = time;
             }
         }
 
-        if (time >= time120)
+        if(time >= time120)
         {
-            //UI ÅØ½ºÆ® 5ÃÊ°£ È°¼ºÈ­ ÀÌÈÄ ºñÈ°¼ºÈ­
+            //UI í…ìŠ¤íŠ¸ 5ì´ˆê°„ í™œì„±í™” ì´í›„ ë¹„í™œì„±í™”
             Text.gameObject.SetActive(true);
             Invoke("TextOff", 6.0f);
 
@@ -50,20 +50,20 @@ public class MonsterSpawner : MonoBehaviour
             time120 = 9999f;
         }
 
-        // 10ÃÊ ¸¶´Ù 50% È®·ü·Î Target.transform.position, transform.rotation¿¡ Meteor »ı¼º
+        // 10ì´ˆ ë§ˆë‹¤ 50% í™•ë¥ ë¡œ Target.transform.position, transform.rotationì— Meteor ìƒì„±
         if (time2 >= lasttime2 + 6)
         {
-            Debug.Log("¸ŞÅ×¿À È£Ãâ");
+            Debug.Log("ë©”í…Œì˜¤ í˜¸ì¶œ");
             switch (Random.Range(0, 2))
             {
                 case 0:
-                    Instantiate(Meteor, Target.transform.position, transform.rotation);
-                    Debug.Log("¼º°ø");
-                    break;
+                Instantiate(Meteor, Target.transform.position, transform.rotation);
+                Debug.Log("ì„±ê³µ");
+                break;
 
                 case 1:
-                    Debug.Log("»ı¼ºX");
-                    break;
+                Debug.Log("ìƒì„±X");
+                break;
             }
             lasttime2 = time2;
         }
@@ -71,7 +71,7 @@ public class MonsterSpawner : MonoBehaviour
 
     void TextOff()
     {
-        //Text ¾Ö´Ï¸ŞÀÌ¼Ç ½ÇÇà
+        //Text ì• ë‹ˆë©”ì´ì…˜ ì‹¤í–‰
         Text.gameObject.SetActive(false);
     }
 
@@ -82,24 +82,24 @@ public class MonsterSpawner : MonoBehaviour
 
     void Monster1Spawn()
     {
-        switch (Random.Range(0, 2))
+        switch(Random.Range(0, 2))
         {
-            case 0: Instantiate(mob[Random.Range(0, 4)], new Vector3(-2.0f, 5, 0), transform.rotation); break;
+            case 0: Instantiate(mob[Random.Range(0, 4)], new Vector3(-2.0f, 6, 0), transform.rotation); break;
             case 1: break;
         }
         switch (Random.Range(0, 2))
         {
-            case 0: Instantiate(mob[Random.Range(0, 4)], new Vector3(-0.7f, 5, 0), transform.rotation); break;
+            case 0: Instantiate(mob[Random.Range(0, 4)], new Vector3(-0.7f, 6, 0), transform.rotation); break;
             case 1: break;
         }
         switch (Random.Range(0, 2))
         {
-            case 0: Instantiate(mob[Random.Range(0, 4)], new Vector3(0.7f, 5, 0), transform.rotation); break;
+            case 0: Instantiate(mob[Random.Range(0, 4)], new Vector3(0.7f, 6, 0), transform.rotation); break;
             case 1: break;
         }
         switch (Random.Range(0, 2))
         {
-            case 0: Instantiate(mob[Random.Range(0, 4)], new Vector3(2.0f, 5, 0), transform.rotation); break;
+            case 0: Instantiate(mob[Random.Range(0, 4)], new Vector3(2.0f, 6, 0), transform.rotation); break;
             case 1: break;
         }
     }
