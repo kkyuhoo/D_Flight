@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     float timer;
-    float scoreDistance;
+    public static float scoreDistance;
 
     public Text score;
 

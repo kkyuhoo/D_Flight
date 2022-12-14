@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Item
+  - BorderBullet
+  - Border
+  - Follewer_01
+  - Follower_02
+  - Monster
+  - Enemy
   layers:
   - Default
   - TransparentFX

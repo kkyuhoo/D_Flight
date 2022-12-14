@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public int power;
     public int maxPower;
+    public float playerHp = 3f;
+    public static float score = 0f;
 
     public int specialMove;
     public int maxSpecialMove;
@@ -28,6 +31,12 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletObjB;
     public GameObject bulletObjC;
     public GameObject bulletObjD;
+
+    public List<GameObject> hpList = new List<GameObject>();
+    //ui pannel
+    public GameObject uiPannel;
+    public GameObject mainCamera;
+    public GameObject scoreUI;
 
     private bool isSpecialMoveTime = false;
     public bool isFire;
@@ -47,12 +56,51 @@ public class PlayerController : MonoBehaviour
         Reload();
     }
 
+    private void Start()
+    {
+
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Monster")
+        {
+            --playerHp;
+            Debug.Log("Player Hp : " + playerHp);
+            //mainCamera 셋트리거
+            mainCamera.GetComponent<Animator>().SetTrigger("CameraShake");
+
+            switch (playerHp)
+            {
+                case 0:
+                    hpList[0].SetActive(false);
+                    hpList[1].SetActive(false);
+                    hpList[2].SetActive(false);
+                    uiPannel.SetActive(true);
+                    Time.timeScale = 0;
+                    break;
+                case 1:
+                    hpList[0].SetActive(true);
+                    hpList[1].SetActive(false);
+                    hpList[2].SetActive(false);
+                    break;
+                case 2:
+                    hpList[0].SetActive(true);
+                    hpList[1].SetActive(true);
+                    hpList[2].SetActive(false);
+                    break;
+                case 3:
+                    hpList[0].SetActive(true);
+                    hpList[1].SetActive(true);
+                    hpList[2].SetActive(true);
+                    break;
+            }
+        }
+
         // 플레이어 범위 제한 설정
         if (collision.gameObject.tag == "Border")
         {
-            switch(collision.gameObject.name)
+            switch (collision.gameObject.name)
             {
                 case "Top":
                     isTouchTop = true;
@@ -70,22 +118,24 @@ public class PlayerController : MonoBehaviour
         }
 
         // 아이템 충돌 처리
-        if(collision.gameObject.tag == "Item")
+        if (collision.gameObject.tag == "Item")
         {
             Item item = collision.gameObject.GetComponent<Item>();
             switch (item.type)
             {
                 case "Coin":
-                    //scroe += 1000;
+                    score += 1000;
+                    //scoreUI에 score 출력
+                    scoreUI.GetComponent<Text>().text = score.ToString();
                     break;
                 case "Power":
-                    if(power == maxPower)
+                    if (power == maxPower)
                     {
                         //scroe += 500;
                     }
                     else
                     {
-                        power++;    
+                        power++;
                     }
                     break;
 
@@ -99,7 +149,7 @@ public class PlayerController : MonoBehaviour
                     {
                         Debug.Log("필살기 더이상 축적 불가능");
                     }
-                        //scroe += 500;
+                    //scroe += 500;
                     else
                     {
                         specialMove++;
@@ -120,7 +170,7 @@ public class PlayerController : MonoBehaviour
             switch (collision.gameObject.name)
             {
                 case "Top":
-                    isTouchTop = false;                    
+                    isTouchTop = false;
                     break;
                 case "Bottom":
                     isTouchBottom = false;
